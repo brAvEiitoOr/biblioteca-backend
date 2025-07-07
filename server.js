@@ -4,6 +4,8 @@ const app = express();
 const bookRoutes = require('./routes/bookRoutes');
 const authRoutes = require('./routes/authRoutes');
 
+const PORT = process.env.PORT || 3000
+
 // Middleware para procesar JSON
 app.use(express.json());
 
@@ -39,8 +41,8 @@ app.get('/', (req, res) => {
 });
 
 // Arrancar servidor HTTP en el puerto 80
-app.listen(80, () => {
-  console.log('🚀 Servidor corriendo en http://40.90.234.134:80');
+app.listen(PORT || 80, () => {
+  console.log('🚀 Servidor corriendo en el puerto ' + PORT);
   console.log('📚 API de Biblioteca Digital v2.0.0');
   console.log('✅ Base de datos conectada');
   console.log('🔗 Endpoints disponibles:');
